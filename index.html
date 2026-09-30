@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEE Freshers 2026 - IIIT Bhubaneswar</title>
+    <meta name="description" content="Welcome to the EEE 2026-30 Batch Freshers Party hosted by EEE 2nd Years.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- HTML2Canvas for downloading invitation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">EEE 26–30</div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#invitation">Invitation</a>
+            <a href="#attendance">Register</a>
+            <a href="#performances">Performances</a>
+        </div>
+        <button class="nav-cta" onclick="document.getElementById('attendance').scrollIntoView({behavior: 'smooth'})">I'm Coming</button>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="#invitation" class="mobile-link">Invitation</a>
+        <a href="#attendance" class="mobile-link">Register</a>
+        <a href="#performances" class="mobile-link">Performances</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="decorative-element top-decoration">🪔 🌸 🪔</div>
+            <h2 class="hero-greeting">VANAKKAM, FRESHERS! 🌸</h2>
+            <h1 class="hero-title">EEE FRESHERS 2026</h1>
+            <p class="hero-subtitle">Welcoming the EEE 2026–30 Batch</p>
+            <p class="hero-host">From Your EEE 2nd Years ❤️</p>
+            <div class="hero-event-details">
+                <span>03 OCTOBER 2026</span> • <span>08:30 AM ONWARDS</span> • <span>AG 01</span> • <span>IIIT BHUBANESWAR</span>
+            </div>
+            <div class="hero-actions">
+                <button class="btn-primary" onclick="document.getElementById('attendance').scrollIntoView({behavior: 'smooth'})">JOIN THE CELEBRATION</button>
+                <button class="btn-secondary" onclick="document.getElementById('performances').scrollIntoView({behavior: 'smooth'})">I WANT TO PERFORM</button>
+            </div>
+            <div class="decorative-element bottom-decoration">🍃 ✨ 🍃</div>
+        </div>
+    </header>
+
+    <!-- Invitation Section -->
+    <section id="invitation" class="invitation">
+        <div class="invitation-card-container">
+            <h2 class="section-heading">YOU ARE WARMLY INVITED</h2>
+            <div class="message-body">
+                <p>Dear Freshers,</p>
+                <p>A new chapter has just begun, and we're here to make your first EEE celebration one to remember.</p>
+                <p>The EEE 2nd Years warmly invite the EEE 2026–30 batch to join us for an evening filled with music, dance, laughter, performances and unforgettable memories.</p>
+                <p>Come dressed to celebrate. Come ready to perform. Most importantly, come ready to make memories.</p>
+                <p class="signature">With love,<br><strong>EEE 2nd Years</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Onam Background Wrapper -->
+    <div class="onam-bg-wrapper">
+        <!-- Event Details Section -->
+        <section id="event-details" class="event-details">
+        <div class="details-grid">
+            <div class="detail-card">
+                <div class="detail-icon">📅</div>
+                <h3>DATE & TIME</h3>
+                <p>3 Oct 2026, 08:30 AM Onwards</p>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">📍</div>
+                <h3>VENUE</h3>
+                <p>AG 01</p>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">🎓</div>
+                <h3>BATCH</h3>
+                <p>EEE 2026–30</p>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">👋</div>
+                <h3>HOSTED BY</h3>
+                <p>EEE 2nd Years</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Highlights Section -->
+    <section id="culture" class="culture">
+        <h2 class="section-heading text-center">EMBRACE THE TRADITION</h2>
+        <div class="highlights-grid">
+            <div class="highlight-item">
+                <img src="assets/temple.jpg" alt="Temple" class="real-icon float-icon">
+                <h3>Majestic Heritage</h3>
+                <p>Traditional Vibes & Decor</p>
+            </div>
+            <div class="highlight-item">
+                <img src="assets/festival.jpg" alt="Festival" class="real-icon glow-icon">
+                <h3>Festive Aura</h3>
+                <p>Music, Dance & Celebrations</p>
+            </div>
+            <div class="highlight-item">
+                <!-- Placeholder for Dosa & Idli since image generation limit reached -->
+                <img src="assets/bg/dosa.jpg" alt="Dosa and Idli" class="real-icon pulse-icon">
+                <h3>Authentic Feast</h3>
+                <p>Dosa, Idli & More</p>
+            </div>
+        </div>
+    </section>
+    </div> <!-- End Onam Background Wrapper -->
+
+    <!-- Attendance Registration -->
+    <section id="attendance" class="attendance">
+        <div class="form-container" id="attendance-form-container">
+            <h2>ARE YOU JOINING US?</h2>
+            <p>Let your seniors know you're coming!</p>
+            <form id="attendance-form">
+                <div class="input-group">
+                    <label for="fresher-name">Your Name</label>
+                    <input type="text" id="fresher-name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label for="fresher-id">Student ID</label>
+                    <input type="text" id="fresher-id" placeholder="e.g. B326001" required>
+                    <p id="id-error" class="hidden" style="color: #d32f2f; font-size: 0.9rem; margin-top: 5px; font-weight: 600;">Invalid ID. Must be between B326001 and B326080.</p>
+                </div>
+                <button type="submit" class="btn-primary">YES, I'M COMING!</button>
+            </form>
+        </div>
+        <div class="success-message hidden" id="attendance-success">
+            <h2 id="welcome-message">WELCOME, [NAME]! 🌸</h2>
+            <p>You are officially invited to EEE Freshers 2026.</p>
+            <button class="btn-secondary" onclick="showPersonalizedInvitation()">View Your Invitation Card</button>
+        </div>
+    </section>
+
+    <!-- Performance Registration -->
+    <section id="performances" class="performances">
+        <h2>READY TO SET THE STAGE ON FIRE? 🔥</h2>
+        <p>Show us what you've got!</p>
+        
+        <div id="performance-selection">
+            <h3>WHAT KIND OF PERFORMANCE ARE YOU BRINGING?</h3>
+            <div class="performance-cards">
+                <div class="perf-card" onclick="selectPerformanceType('solo')">
+                    <div class="perf-icon">🎤</div>
+                    <h4>SOLO</h4>
+                    <p>One performer</p>
+                </div>
+                <div class="perf-card" onclick="selectPerformanceType('duo')">
+                    <div class="perf-icon">🕺🕺</div>
+                    <h4>DUO</h4>
+                    <p>Two performers</p>
+                </div>
+                <div class="perf-card" onclick="selectPerformanceType('group')">
+                    <div class="perf-icon">🔥</div>
+                    <h4>GROUP</h4>
+                    <p>Three or more performers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Forms -->
+        <div id="performance-forms" class="hidden">
+            <!-- Form will be dynamically injected here -->
+        </div>
+
+        <!-- Performance Success -->
+        <div id="performance-success" class="hidden text-center form-container">
+            <h2>PERFORMANCE REGISTERED! 🔥</h2>
+            <p>Your performance has officially joined the EEE Freshers lineup.</p>
+            <div id="performance-summary" class="summary-box">
+                <!-- Summary details here -->
+            </div>
+            <p class="mt-4">Get ready to own the stage!</p>
+            <button class="btn-secondary mt-4" onclick="resetPerformances()">BACK TO INVITATION</button>
+        </div>
+    </section>
+
+    <!-- Personalized Invitation Card Modal -->
+    <div id="invitation-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="capture-card" class="personalized-card">
+                <div class="card-border">
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <div class="lamp-icon">🪔</div>
+                            <h3>YOU ARE INVITED 🌸</h3>
+                            <h2>EEE FRESHERS 2026</h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="dear-text">Dear <span id="card-name-display">Name</span>,</p>
+                            <p class="invite-text">You are warmly invited by the EEE 2nd Years to celebrate the beginning of your EEE journey.</p>
+                        </div>
+                        <div class="card-details">
+                            <p>03 OCTOBER 2026</p>
+                            <p>08:30 AM ONWARDS</p>
+                            <p>AG 01</p>
+                            <p>IIIT BHUBANESWAR</p>
+                            <p>EEE 2026–30</p>
+                        </div>
+                        <div class="card-footer">
+                            <p>With love,</p>
+                            <p><strong>EEE 2nd Years</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="download-btn" class="btn-primary">DOWNLOAD INVITATION</button>
+                <button id="share-btn" class="btn-secondary">SHARE INVITATION</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-decorative">✨ 🌸 ✨</div>
+            <h3>EEE FRESHERS 2026</h3>
+            <p>EEE 2026–30 | IIIT BHUBANESWAR</p>
+            <p>03 OCTOBER 2026 • 08:30 AM ONWARDS • AG 01</p>
+            <div class="footer-bottom">
+                <p>Hosted with ❤️ by EEE 2nd Years</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>

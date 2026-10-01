@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Background Music (Ambient & Soothing) ---
     const bgMusic = document.getElementById('bg-music');
     if (bgMusic) {
-        bgMusic.volume = 0.2; // Low volume for a soothing, ambient effect
+        bgMusic.volume = 0.8; // Volume set to 80%
         
         // Attempt to play immediately (works on desktop if autoplay policy allows)
         bgMusic.play().catch(err => console.log("Autoplay blocked until user interaction."));

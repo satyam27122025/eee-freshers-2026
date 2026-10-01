@@ -286,7 +286,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .invitation-card-container {
-    background-image: linear-gradient(rgba(255, 253, 208, 0.88), rgba(255, 253, 208, 0.88)), url('assets/bg/imagess.jpg');
+    background-image: linear-gradient(rgba(255, 253, 208, 0.88), rgba(255, 253, 208, 0.88)), url('assets/bg/imaagess.jpg');
     background-size: cover;
     background-position: center;
     background-color: #fff; /* fallback */

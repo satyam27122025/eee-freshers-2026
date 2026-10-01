@@ -1,5 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- Background Music (Ambient & Soothing) ---
+    const bgMusic = document.getElementById('bg-music');
+    if (bgMusic) {
+        bgMusic.volume = 0.2; // Low volume for a soothing, ambient effect
+        
+        // Browsers block autoplay without interaction, so we attempt to play
+        // and if it fails, we wait for the first user interaction.
+        const playMusic = () => {
+            bgMusic.play().catch(err => console.log("Autoplay blocked until user interaction."));
+        };
+        
+        // Attempt to play immediately
+        playMusic();
+        
+        // Also bind to first interaction just in case
+        const startOnInteraction = () => {
+            playMusic();
+            document.removeEventListener('click', startOnInteraction);
+            document.removeEventListener('touchstart', startOnInteraction);
+            document.removeEventListener('scroll', startOnInteraction);
+        };
+        
+        document.addEventListener('click', startOnInteraction, { once: true });
+        document.addEventListener('touchstart', startOnInteraction, { once: true });
+        document.addEventListener('scroll', startOnInteraction, { once: true });
+    }
+
     // --- Navbar Scroll Effect ---
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {

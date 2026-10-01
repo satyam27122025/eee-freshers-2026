@@ -65,6 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const attendanceForm = document.getElementById('attendance-form');
     const fresherNameInput = document.getElementById('fresher-name');
     const fresherIdInput = document.getElementById('fresher-id');
+    const fresherLikesInput = document.getElementById('fresher-likes');
+    const fresherDislikesInput = document.getElementById('fresher-dislikes');
+    const fresherAboutInput = document.getElementById('fresher-about');
+    const fresherHobbiesInput = document.getElementById('fresher-hobbies');
+    const fresherFunfactInput = document.getElementById('fresher-funfact');
     const idError = document.getElementById('id-error');
     const formContainer = document.getElementById('attendance-form-container');
     const successContainer = document.getElementById('attendance-success');
@@ -92,6 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const name = fresherNameInput.value.trim();
         const studentId = fresherIdInput.value.trim();
+        const likes = fresherLikesInput.value.trim();
+        const dislikes = fresherDislikesInput.value.trim();
+        const about = fresherAboutInput.value.trim();
+        const hobbies = fresherHobbiesInput.value.trim();
+        const funfact = fresherFunfactInput.value.trim();
 
         if (!validateStudentId(studentId)) {
             idError.classList.remove('hidden');
@@ -107,8 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
             saveData();
             showAttendanceSuccess(name);
 
+            const details = `Likes: ${likes}\nDislikes: ${dislikes}\nAbout: ${about}\nHobbies: ${hobbies}\nFun Fact: ${funfact}`;
+
             // Send to Google Form as "Not Performing" (They can always register for performance later)
-            submitToGoogleForm(name, studentId, "Not Performing", "N/A", "N/A");
+            submitToGoogleForm(name, studentId, "Not Performing", "N/A", details);
         }
     });
 

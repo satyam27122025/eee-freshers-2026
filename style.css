@@ -492,6 +492,25 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
 }
 
+.form-section-divider {
+    margin: 30px 0 20px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--secondary-color);
+    text-align: center;
+}
+
+.form-section-divider h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.form-section-divider p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
 .input-group {
     margin-bottom: 20px;
     text-align: left;

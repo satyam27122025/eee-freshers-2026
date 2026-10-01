@@ -11,19 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // For strict mobile browsers (iOS Safari), audio MUST be played directly 
         // in the call stack of a user interaction event.
         const startOnInteraction = () => {
-            bgMusic.play().catch(e => console.log(e));
-            // Remove listeners once playback starts
-            document.removeEventListener('click', startOnInteraction);
-            document.removeEventListener('touchstart', startOnInteraction);
-            document.removeEventListener('scroll', startOnInteraction);
-            document.removeEventListener('keydown', startOnInteraction);
+            bgMusic.play().then(() => {
+                // Remove listeners once playback starts successfully
+                document.removeEventListener('click', startOnInteraction);
+                document.removeEventListener('touchstart', startOnInteraction);
+                document.removeEventListener('keydown', startOnInteraction);
+            }).catch(e => console.log("Audio play failed on interaction:", e));
         };
         
-        // Bind to all common interaction events to ensure it catches the user's first move
-        document.addEventListener('click', startOnInteraction, { once: true });
-        document.addEventListener('touchstart', startOnInteraction, { once: true });
-        document.addEventListener('scroll', startOnInteraction, { once: true });
-        document.addEventListener('keydown', startOnInteraction, { once: true });
+        // Bind to valid user interaction events. (Note: scroll is not a valid gesture)
+        document.addEventListener('click', startOnInteraction);
+        document.addEventListener('touchstart', startOnInteraction);
+        document.addEventListener('keydown', startOnInteraction);
     }
 
     // --- Navbar Scroll Effect ---

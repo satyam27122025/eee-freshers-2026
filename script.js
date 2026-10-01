@@ -4,9 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgMusic = document.getElementById('bg-music');
     if (bgMusic) {
         bgMusic.volume = 0.8; // Volume set to 80%
+        let isPlaying = false;
         
         const tryPlay = () => {
-            bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
+            if (isPlaying) return;
+            const playPromise = bgMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                }).catch(err => console.log("Autoplay blocked:", err));
+            }
         };
 
         // Attempt to play immediately
@@ -15,22 +22,37 @@ document.addEventListener('DOMContentLoaded', () => {
         // Also attempt on window load
         window.addEventListener('load', tryPlay);
         
+        // Repeatedly attempt to play every 2 seconds
+        const playInterval = setInterval(() => {
+            if (isPlaying) {
+                clearInterval(playInterval);
+            } else {
+                tryPlay();
+            }
+        }, 2000);
+        
         // Bind to all possible interactions to play as soon as the user does ANYTHING
-        const interactionEvents = ['click', 'touchstart', 'keydown', 'mousemove', 'scroll', 'wheel'];
+        const interactionEvents = ['click', 'touchstart', 'touchend', 'keydown', 'mousemove', 'scroll', 'wheel', 'mousedown', 'pointerdown'];
         
         const startOnInteraction = () => {
-            bgMusic.play().then(() => {
-                // Remove listeners once playback starts successfully
-                interactionEvents.forEach(event => {
-                    document.removeEventListener(event, startOnInteraction);
-                    window.removeEventListener(event, startOnInteraction);
-                });
-            }).catch(e => {});
+            if (isPlaying) return;
+            const playPromise = bgMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    clearInterval(playInterval);
+                    // Remove listeners once playback starts successfully
+                    interactionEvents.forEach(event => {
+                        document.removeEventListener(event, startOnInteraction, { capture: true });
+                        window.removeEventListener(event, startOnInteraction, { capture: true });
+                    });
+                }).catch(e => {});
+            }
         };
         
         interactionEvents.forEach(event => {
-            document.addEventListener(event, startOnInteraction);
-            window.addEventListener(event, startOnInteraction);
+            document.addEventListener(event, startOnInteraction, { capture: true });
+            window.addEventListener(event, startOnInteraction, { capture: true });
         });
     }
 

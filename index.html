@@ -22,7 +22,6 @@
             <a href="#hero">Home</a>
             <a href="#invitation">Invitation</a>
             <a href="#attendance">Register</a>
-            <a href="#performances">Performances</a>
         </div>
         <button class="nav-cta" onclick="document.getElementById('attendance').scrollIntoView({behavior: 'smooth'})">I'm Coming</button>
         <div class="hamburger">
@@ -35,7 +34,6 @@
         <a href="#hero" class="mobile-link">Home</a>
         <a href="#invitation" class="mobile-link">Invitation</a>
         <a href="#attendance" class="mobile-link">Register</a>
-        <a href="#performances" class="mobile-link">Performances</a>
     </div>
 
     <!-- Hero Section -->
@@ -52,7 +50,6 @@
             </div>
             <div class="hero-actions">
                 <button class="btn-primary" onclick="document.getElementById('attendance').scrollIntoView({behavior: 'smooth'})">JOIN THE CELEBRATION</button>
-                <button class="btn-secondary" onclick="document.getElementById('performances').scrollIntoView({behavior: 'smooth'})">I WANT TO PERFORM</button>
             </div>
             <div class="decorative-element bottom-decoration">🍃 ✨ 🍃</div>
         </div>
@@ -66,7 +63,7 @@
                 <p>Dear Freshers,</p>
                 <p>A new chapter has just begun, and we're here to make your first EEE celebration one to remember.</p>
                 <p>The EEE 2nd Years warmly invite the EEE 2026–30 batch to join us for an evening filled with music, dance, laughter, performances and unforgettable memories.</p>
-                <p>Come dressed to celebrate. Come ready to perform. Most importantly, come ready to make memories.</p>
+                <p>Come dressed to celebrate. Most importantly, come ready to make memories.</p>
                 <p class="signature">With love,<br><strong>EEE 2nd Years</strong></p>
             </div>
         </div>
@@ -149,48 +146,6 @@
         </div>
     </section>
 
-    <!-- Performance Registration -->
-    <section id="performances" class="performances">
-        <h2>READY TO SET THE STAGE ON FIRE? 🔥</h2>
-        <p>Show us what you've got!</p>
-        
-        <div id="performance-selection">
-            <h3>WHAT KIND OF PERFORMANCE ARE YOU BRINGING?</h3>
-            <div class="performance-cards">
-                <div class="perf-card" onclick="selectPerformanceType('solo')">
-                    <div class="perf-icon">🎤</div>
-                    <h4>SOLO</h4>
-                    <p>One performer</p>
-                </div>
-                <div class="perf-card" onclick="selectPerformanceType('duo')">
-                    <div class="perf-icon">🕺🕺</div>
-                    <h4>DUO</h4>
-                    <p>Two performers</p>
-                </div>
-                <div class="perf-card" onclick="selectPerformanceType('group')">
-                    <div class="perf-icon">🔥</div>
-                    <h4>GROUP</h4>
-                    <p>Three or more performers</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Performance Forms -->
-        <div id="performance-forms" class="hidden">
-            <!-- Form will be dynamically injected here -->
-        </div>
-
-        <!-- Performance Success -->
-        <div id="performance-success" class="hidden text-center form-container">
-            <h2>PERFORMANCE REGISTERED! 🔥</h2>
-            <p>Your performance has officially joined the EEE Freshers lineup.</p>
-            <div id="performance-summary" class="summary-box">
-                <!-- Summary details here -->
-            </div>
-            <p class="mt-4">Get ready to own the stage!</p>
-            <button class="btn-secondary mt-4" onclick="resetPerformances()">BACK TO INVITATION</button>
-        </div>
-    </section>
 
     <!-- Personalized Invitation Card Modal -->
     <div id="invitation-modal" class="modal hidden">

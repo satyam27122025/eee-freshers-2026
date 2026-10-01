@@ -22,6 +22,10 @@
     scroll-behavior: smooth;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-body);
     font-weight: 400; /* Reverted */
@@ -31,7 +35,6 @@ body {
     background-size: 500px;
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -799,7 +802,11 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .side-element { display: none; } /* Hide on mobile so it doesn't overlap text */
     
-    .hero-title { font-size: 3rem; }
+    .hero-title { 
+        font-size: 3.2rem; 
+        white-space: normal; 
+        line-height: 1.1;
+    }
     .hero-greeting { font-size: 1.2rem; }
     .hero-event-details { display: flex; flex-direction: column; gap: 5px; }
     .hero-actions { flex-direction: column; }

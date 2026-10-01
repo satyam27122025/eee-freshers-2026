@@ -768,6 +768,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    /* Performance optimization for mobile/tablet to prevent scroll lag */
+    body, .hero, .onam-bg-wrapper {
+        background-attachment: scroll !important;
+    }
+    
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar {
+        /* Reduce backdrop filter on mobile for better scroll performance */
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Hardware acceleration for animations */
+    .float-icon, .glow-icon, .pulse-icon {
+        will-change: transform, filter;
+    }
+    
+    /* Optional: Pause continuous animations if user prefers reduced motion (handled by OS, but good to have) */
+    @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+            animation-play-state: paused !important;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .side-element { display: none; } /* Hide on mobile so it doesn't overlap text */
     

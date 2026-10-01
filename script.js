@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const about = fresherAboutInput.value.trim();
         const hobbies = fresherHobbiesInput.value.trim();
         const funfact = fresherFunfactInput.value.trim();
+        const participating = document.querySelector('input[name="fresher-participating"]:checked')?.value;
 
         if (!validateStudentId(studentId)) {
             idError.classList.remove('hidden');
@@ -119,8 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const details = `Likes: ${likes}\nDislikes: ${dislikes}\nAbout: ${about}\nHobbies: ${hobbies}\nFun Fact: ${funfact}`;
 
-            // Send to Google Form as "Not Performing" (They can always register for performance later)
-            submitToGoogleForm(name, studentId, "Not Performing", "N/A", details);
+            // Send to Google Form based on participation choice
+            const performanceStatus = (participating === 'Yes') ? "Performing" : "Not Performing";
+            submitToGoogleForm(name, studentId, performanceStatus, "N/A", details);
         }
     });
 

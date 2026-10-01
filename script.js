@@ -5,8 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bgMusic) {
         bgMusic.volume = 0.8; // Volume set to 80%
         
-        // Attempt to play immediately without waiting for interaction
-        bgMusic.play().catch(err => console.log("Browser autoplay policy prevented playback.", err));
+        // Attempt to play immediately (works on desktop if autoplay policy allows)
+        bgMusic.play().catch(err => console.log("Autoplay blocked until user interaction."));
+        
+        // For strict mobile browsers (iOS Safari), audio MUST be played directly 
+        // in the call stack of a user interaction event.
+        const startOnInteraction = () => {
+            bgMusic.play().catch(e => console.log(e));
+            // Remove listeners once playback starts
+            document.removeEventListener('click', startOnInteraction);
+            document.removeEventListener('touchstart', startOnInteraction);
+            document.removeEventListener('scroll', startOnInteraction);
+            document.removeEventListener('keydown', startOnInteraction);
+        };
+        
+        // Bind to all common interaction events to ensure it catches the user's first move
+        document.addEventListener('click', startOnInteraction, { once: true });
+        document.addEventListener('touchstart', startOnInteraction, { once: true });
+        document.addEventListener('scroll', startOnInteraction, { once: true });
+        document.addEventListener('keydown', startOnInteraction, { once: true });
     }
 
     // --- Navbar Scroll Effect ---

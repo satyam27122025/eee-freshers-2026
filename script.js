@@ -5,24 +5,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bgMusic) {
         bgMusic.volume = 0.8; // Volume set to 80%
         
-        // Attempt to play immediately (works on desktop if autoplay policy allows)
-        bgMusic.play().catch(err => console.log("Autoplay blocked until user interaction."));
+        const tryPlay = () => {
+            bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
+        };
+
+        // Attempt to play immediately
+        tryPlay();
         
-        // For strict mobile browsers (iOS Safari), audio MUST be played directly 
-        // in the call stack of a user interaction event.
+        // Also attempt on window load
+        window.addEventListener('load', tryPlay);
+        
+        // Bind to all possible interactions to play as soon as the user does ANYTHING
+        const interactionEvents = ['click', 'touchstart', 'keydown', 'mousemove', 'scroll', 'wheel'];
+        
         const startOnInteraction = () => {
             bgMusic.play().then(() => {
                 // Remove listeners once playback starts successfully
-                document.removeEventListener('click', startOnInteraction);
-                document.removeEventListener('touchstart', startOnInteraction);
-                document.removeEventListener('keydown', startOnInteraction);
-            }).catch(e => console.log("Audio play failed on interaction:", e));
+                interactionEvents.forEach(event => {
+                    document.removeEventListener(event, startOnInteraction);
+                    window.removeEventListener(event, startOnInteraction);
+                });
+            }).catch(e => {});
         };
         
-        // Bind to valid user interaction events. (Note: scroll is not a valid gesture)
-        document.addEventListener('click', startOnInteraction);
-        document.addEventListener('touchstart', startOnInteraction);
-        document.addEventListener('keydown', startOnInteraction);
+        interactionEvents.forEach(event => {
+            document.addEventListener(event, startOnInteraction);
+            window.addEventListener(event, startOnInteraction);
+        });
     }
 
     // --- Navbar Scroll Effect ---

@@ -22,8 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
-        });
     });
+
+    // --- Scroll Reveal Animations ---
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target); // Stop observing once revealed
+            }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // --- Google Form Integration (Backend) ---
     const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSddUBBHdWheVoiRxCNlu3Y3Ymz7XIeUz2nGInkAYKoC_TSCCQ/formResponse";
